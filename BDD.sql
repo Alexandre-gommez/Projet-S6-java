@@ -21,8 +21,8 @@ CREATE TABLE Cours(Id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, Nom varchar(50) N
 -- Type de cours (cours interactif, magistral, TD, TP, projet, soutien etc.)
 CREATE TABLE Type_Cours(Id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, Nom varchar(50) NOT NULL);
 --
---Table Enseignant (l’enseignant est un utilisateur et peut donner plusieurs cours)
-CREATE TABLE Enseignant(Id INT PRIMARY KEY NOT NULL, FOREIGN KEY(Id) REFERENCES Utilisateur(Id), Cours INT PRIMARY KEY NOT NULL, FOREIGN KEY(Cours) REFERENCES Cours(Id));
+-- Table Enseignant (l’enseignant est un utilisateur et peut donner plusieurs cours)
+CREATE TABLE Enseignant(Id INT PRIMARY KEY NOT NULL, FOREIGN KEY(Id) REFERENCES Utilisateur(Id), Cours INT NOT NULL, FOREIGN KEY(Cours) REFERENCES Cours(Id));
 --
 -- Table Site
 CREATE TABLE Sites(Id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, Nom varchar(50) NOT NULL);
@@ -31,17 +31,17 @@ CREATE TABLE Sites(Id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, Nom varchar(50) N
 CREATE TABLE Salle(Id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, Nom varchar(50) NOT NULL, Capacite int NOT NULL, Site int NOT NULL, FOREIGN KEY(Site) REFERENCES Sites(Id));
 --
 -- Table Seance
-CREATE TABLE Seance(Id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, Semaine int NOT NULL, Date varchar(50) NOT NULL, Debut varchar(50) NOT NULL, Fin varchar(50) NOT NULL, Etat int NOT NULL, Cours INT PRIMARY KEY NOT NULL, FOREIGN KEY(Cours) REFERENCES Cours(Id),  Type INT PRIMARY KEY NOT NULL, FOREIGN KEY(Type) REFERENCES Type_Cours(Id));
+CREATE TABLE Seance(Id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, Semaine int NOT NULL, Date varchar(50) NOT NULL, Debut varchar(50) NOT NULL, Fin varchar(50) NOT NULL, Etat int NOT NULL, Cours INT NOT NULL, FOREIGN KEY(Cours) REFERENCES Cours(Id),  Type INT NOT NULL, FOREIGN KEY(Type) REFERENCES Type_Cours(Id));
 --      Remarques : 
 --          l’attribut SEMAINE indique le numéro de semaine dans une année civile.
 --          L’attribut ETAT indique si la séance est en cours de validation, validée ou annulée : cet attribut pourra être représenté par un numéro identifiant l’état de la séance.
 --
 -- Table Seance_Groupes
-CREATE TABLE Seance_Groupes(Seance INT PRIMARY KEY NOT NULL, FOREIGN KEY(Seance) REFERENCES Seance(Id), Groupe INT PRIMARY KEY NOT NULL, FOREIGN KEY(Groupe) REFERENCES Groupe(Id));
+CREATE TABLE Seance_Groupes(Seance INT PRIMARY KEY NOT NULL, FOREIGN KEY(Seance) REFERENCES Seance(Id), Groupe INT  NULL, FOREIGN KEY(Groupe) REFERENCES Groupe(Id));
 --
 -- Table Seance_Enseignants
-CREATE TABLE Seance_Enseignants(Seance INT PRIMARY KEY NOT NULL, FOREIGN KEY(Seance) REFERENCES Seance(Id), Enseignant INT PRIMARY KEY NOT NULL, FOREIGN KEY(Enseignant) REFERENCES Enseignant(Id));
+CREATE TABLE Seance_Enseignants(Seance INT PRIMARY KEY NOT NULL, FOREIGN KEY(Seance) REFERENCES Seance(Id), Enseignant INT NOT NULL, FOREIGN KEY(Enseignant) REFERENCES Enseignant(Id));
 --
 -- Table Seance_Salles
-CREATE TABLE Seance_Salles(Seance INT PRIMARY KEY NOT NULL, FOREIGN KEY(Seance) REFERENCES Seance(Id), Salle INT PRIMARY KEY NOT NULL, FOREIGN KEY(Salle) REFERENCES Salle(Id));
+CREATE TABLE Seance_Salles(Seance INT PRIMARY KEY NOT NULL, FOREIGN KEY(Seance) REFERENCES Seance(Id), Salle INT NOT NULL, FOREIGN KEY(Salle) REFERENCES Salle(Id));
 --
