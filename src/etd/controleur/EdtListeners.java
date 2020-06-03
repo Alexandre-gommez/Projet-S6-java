@@ -6,12 +6,14 @@
 package etd.controleur;
 
 import etd.vue.Frame;
+import etd.vue.Login;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.*;
 
 public class EdtListeners {
+    
     public MouseListener addChoice1Listener(Frame frame)
     {
         MouseListener myListener = new MouseListener() {
@@ -57,5 +59,36 @@ public class EdtListeners {
             public void mouseExited(MouseEvent e) {}
     };
         return myListener;
+    }
+    
+     public MouseListener addValidateListener(Frame frame) 
+     {
+        MouseListener myListener = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+               System.out.println("test");
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        };
+     return myListener;
     }
 }
