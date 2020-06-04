@@ -73,11 +73,11 @@ INSERT INTO Promotion(Nom) VALUES ("2023");
 --
 -- Groupes
 -- Promo 2022
-INSERT INTO Groupe(Nom, Promo) VALUES ("TD1", "2022");
-INSERT INTO Groupe(Nom, Promo) VALUES ("TD2", "2022");
+INSERT INTO Groupe(Nom, Promo) VALUES ("TD1", "1");
+INSERT INTO Groupe(Nom, Promo) VALUES ("TD2", "1");
 -- Promo 2023
-INSERT INTO Groupe(Nom, Promo) VALUES ("TD1", "2023");
-INSERT INTO Groupe(Nom, Promo) VALUES ("TD2", "2023");
+INSERT INTO Groupe(Nom, Promo) VALUES ("TD1", "2");
+INSERT INTO Groupe(Nom, Promo) VALUES ("TD2", "2");
 --
 -- Etudiants
 -- Promo 2022 TD1 Victor et Alexandre
@@ -126,20 +126,20 @@ INSERT INTO Sites(Nom) VALUES ("E5");
 --
 -- Salles
 -- E1
-CREATE TABLE Salle(Nom, Capacite, Site) VALUES ("A1", "200", "1");
-CREATE TABLE Salle(Nom, Capacite, Site) VALUES ("A2", "180", "1");
+INSERT INTO Salle(Nom, Capacite, Site) VALUES ("A1", "200", "1");
+INSERT INTO Salle(Nom, Capacite, Site) VALUES ("A2", "180", "1");
 -- E2
-CREATE TABLE Salle(Nom, Capacite, Site) VALUES ("B1", "12", "2");
-CREATE TABLE Salle(Nom, Capacite, Site) VALUES ("B2", "21", "2");
+INSERT INTO Salle(Nom, Capacite, Site) VALUES ("B1", "12", "2");
+INSERT INTO Salle(Nom, Capacite, Site) VALUES ("B2", "21", "2");
 -- E3
-CREATE TABLE Salle(Nom, Capacite, Site) VALUES ("C1", "33", "3");
-CREATE TABLE Salle(Nom, Capacite, Site) VALUES ("C2", "39", "3");
+INSERT INTO Salle(Nom, Capacite, Site) VALUES ("C1", "33", "3");
+INSERT INTO Salle(Nom, Capacite, Site) VALUES ("C2", "39", "3");
 -- E4
-CREATE TABLE Salle(Nom, Capacite, Site) VALUES ("D1", "36", "4");
-CREATE TABLE Salle(Nom, Capacite, Site) VALUES ("D2", "36", "4");
+INSERT INTO Salle(Nom, Capacite, Site) VALUES ("D1", "36", "4");
+INSERT INTO Salle(Nom, Capacite, Site) VALUES ("D2", "36", "4");
 -- E5
-CREATE TABLE Salle(Nom, Capacite, Site) VALUES ("F1", "10", "5");
-CREATE TABLE Salle(Nom, Capacite, Site) VALUES ("F2", "15", "5");
+INSERT INTO Salle(Nom, Capacite, Site) VALUES ("F1", "10", "5");
+INSERT INTO Salle(Nom, Capacite, Site) VALUES ("F2", "15", "5");
 --
 -- Seances 
 -- Seance info projet le 27/05 de 15h30 à 18h45
