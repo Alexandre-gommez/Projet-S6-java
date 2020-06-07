@@ -214,7 +214,7 @@ INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '
 INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/28', "08:30", "10:00", "2", "5", "1");
 -- Seance Réseau en TP de 13h45 à 17h
 INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/28', "13:45", "15:15", "2", "8", "4");
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/26', "15:30", "17:00", "2", "8", "4");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/28', "15:30", "17:00", "2", "8", "4");
 -- 29/05
 -- Seance Réseau en TP de 13h45 à 17h
 INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/29', "13:45", "15:15", "2", "2", "5");
