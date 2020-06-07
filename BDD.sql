@@ -32,7 +32,7 @@ CREATE TABLE Sites(Id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, Nom varchar(50) N
 CREATE TABLE Salle(Id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, Nom varchar(50) NOT NULL, Capacite int NOT NULL, Site int NOT NULL, FOREIGN KEY(Site) REFERENCES Sites(Id));
 --
 -- Table Seance
-CREATE TABLE Seance(Id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, Semaine int NOT NULL, Date varchar(50) NOT NULL, Debut varchar(50) NOT NULL, Fin varchar(50) NOT NULL, Etat int NOT NULL, Cours INT NOT NULL, FOREIGN KEY(Cours) REFERENCES Cours(Id),  Type INT NOT NULL, FOREIGN KEY(Type) REFERENCES Type_Cours(Id));
+CREATE TABLE Seance(Id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, Semaine int NOT NULL, Date date NOT NULL, Debut varchar(50) NOT NULL, Fin varchar(50) NOT NULL, Etat int NOT NULL, Cours INT NOT NULL, FOREIGN KEY(Cours) REFERENCES Cours(Id),  Type INT NOT NULL, FOREIGN KEY(Type) REFERENCES Type_Cours(Id));
 --      Remarques : 
 --          l’attribut SEMAINE indique le numéro de semaine dans une année civile.
 --          L’attribut ETAT indique si la séance est en cours de validation, validée ou annulée : cet attribut pourra être représenté par un numéro identifiant l’état de la séance.
@@ -172,121 +172,305 @@ INSERT INTO Salle(Nom, Capacite, Site) VALUES ("F4", "18", "5");
 -- Semaine 22 TD1 2022
 -- 26 mai
 -- Seance anthropologie cours interactif de 8h30 à 10H
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "26/05", "0830", "1000", "2", "5", "1");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22",'2020/05/26', "08:30", "10:00", "2", "5", "1");
 -- Seance DDT cours magistral de 15h30 à 17H (le TD2 aussi là)
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "26/05", "1530", "1700", "2", "6", "2");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22",'2020/05/26', "15:30", "17:00", "2", "6", "2");
 -- 27 mai
 -- Seance TS2 TP de 8h30 à 10H (le TD2 aussi là)
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "27/05", "0830", "1000", "2", "7", "4");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/27', "08:30", "10:00", "2", "7", "4");
 -- Seance elec projet le 27/05 de 12h00 à 15h15
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "27/05", "1200", "1330", "2", "2", "5");
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "27/05", "1345", "1515", "2", "2", "5");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/27', "12:00", "13:30", "2", "2", "5");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/27', "13:45", "15:15", "2", "2", "5");
 -- Seance anglais cours interactif le 27/05 de 15h30 à 17h00
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "27/05", "1530", "1700", "2", "4", "1");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/27', "15:30", "17:00", "2", "4", "1");
 -- 28 mai
 -- Seance proba TD le 28/05 de 8h30 à 10h00
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "28/05", "0830", "1000", "2", "3", "3");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/28', "08:30", "10:00", "2", "3", "3");
 -- Seance info TP le 28/05 de 10h15 à 13h30
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "28/05", "1015", "1145", "2", "1", "4");
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "28/05", "1200", "1330", "2", "1", "4");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/28', "10:15", "11:45", "2", "1", "4");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/28', "12:00", "13:30", "2", "1", "4");
 -- Seance DDT cours magistral de 17H15 à 18h45 (le TD2 aussi là)
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "26/05", "1715", "1845", "2", "6", "2");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/28', "17:15", "18:45", "2", "6", "2");
 -- 29 mai
 -- Seance proba cours magistral le 28/05 de 8h30 à 11h45 (le TD2 aussi là)
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "29/05", "0830", "1000", "2", "3", "2");
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "29/05", "1015", "1145", "2", "3", "2");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/29', "08:30", "10:00", "2", "3", "2");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/29', "10:15", "11:45", "2", "3", "2");
 -- Seance Réseau en TP de 13h45 à 17h
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "29/05", "1345", "1515", "2", "8", "4");
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "29/05", "1530", "1700", "2", "8", "4");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/29', "13:45", "15:15", "2", "8", "4");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/29', "15:30", "17:00", "2", "8", "4");
 --
 -- Semaine 22 TD1 2022
 -- 26/05
 -- Seance anglais cours interactif le 26/05 de 13h45 à 15h15
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "26/05", "1345", "1515", "2", "4", "1");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/26', "13:45", "15:15", "2", "4", "1");
 -- 27/05
 -- Seance info TP de 10h15 à 13h30
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "27/05", "1015", "1145", "2", "1", "4");
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "27/05", "1200", "1330", "2", "1", "4");
--- Seance proba TD de 8h30 à 10h00
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "27/05", "1715", "1845", "2", "3", "3");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/27', "10:15", "11:45", "2", "1", "4");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/27', "12:00", "13:30", "2", "1", "4");
+-- Seance proba TD de 17h15 à 18h45
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/27', "17:15", "18:45", "2", "3", "3");
 -- 28/05
 -- Seance anthropologie cours interactif de 8h30 à 10H
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "28/05", "0830", "1000", "2", "5", "1");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/28', "08:30", "10:00", "2", "5", "1");
 -- Seance Réseau en TP de 13h45 à 17h
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "28/05", "1345", "1515", "2", "8", "4");
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "28/05", "1530", "1700", "2", "8", "4");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/28', "13:45", "15:15", "2", "8", "4");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/26', "15:30", "17:00", "2", "8", "4");
 -- 29/05
 -- Seance Réseau en TP de 13h45 à 17h
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "29/05", "1345", "1515", "2", "2", "5");
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "29/05", "1530", "1700", "2", "2", "5");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/29', "13:45", "15:15", "2", "2", "5");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/29', "15:30", "17:00", "2", "2", "5");
 -- 
 -- La promo 2023 en projet info toute la semaine 22
 -- 26/05
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "26/05", "0830", "1000", "2", "1", "5");
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "26/05", "1015", "1145", "2", "1", "5");
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "26/05", "1200", "1330", "2", "1", "5");
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "26/05", "1345", "1515", "2", "1", "5");
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "26/05", "1530", "1700", "2", "1", "5");
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "26/05", "1715", "1845", "2", "1", "5");
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "26/05", "1900", "2030", "2", "1", "5");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/26', "08:30", "10:00", "2", "1", "5");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/26', "10:15", "11:45", "2", "1", "5");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/26', "12:00", "13:30", "2", "1", "5");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/26', "13:45", "15:15", "2", "1", "5");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/26', "15:30", "17:00", "2", "1", "5");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/26', "17:15", "18:45", "2", "1", "5");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/26', "19:00", "20:30", "2", "1", "5");
 -- 27/05
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "27/05", "1345", "1515", "2", "1", "5");
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "27/05", "1530", "1700", "2", "1", "5");
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "27/05", "1715", "1845", "2", "1", "5");
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "27/05", "1900", "2030", "2", "1", "5");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/27', "13:45", "15:15", "2", "1", "5");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/27', "15:30", "17:00", "2", "1", "5");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/27', "17:15", "18:45", "2", "1", "5");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/27', "19:00", "20:30", "2", "1", "5");
 -- 28/05
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "28/05", "1345", "1515", "2", "1", "5");
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "28/05", "1530", "1700", "2", "1", "5");
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "28/05", "1715", "1845", "2", "1", "5");
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "28/05", "1900", "2030", "2", "1", "5");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/28', "13:45", "15:15", "2", "1", "5");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/28', "15:30", "17:00", "2", "1", "5");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/28', "17:15", "18:45", "2", "1", "5");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/28', "19:00", "20:30", "2", "1", "5");
 -- 29/05
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "29/05", "0830", "1000", "2", "1", "5");
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "29/05", "1015", "1145", "2", "1", "5");
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "29/05", "1200", "1330", "2", "1", "5");
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "29/05", "1345", "1515", "2", "1", "5");
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "29/05", "1530", "1700", "2", "1", "5");
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "29/05", "1715", "1845", "2", "1", "5");
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "29/05", "1900", "2030", "2", "1", "5");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/29', "08:30", "10:00", "2", "1", "5");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/29', "10:15", "11:45", "2", "1", "5");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/29', "12:00", "13:30", "2", "1", "5");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/29', "13:45", "15:15", "2", "1", "5");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/29', "15:30", "17:00", "2", "1", "5");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/29', "17:15", "18:45", "2", "1", "5");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/29', "19:00", "20:30", "2", "1", "5");
 --
 -- semaine 23
 -- 01/06
 -- Seance anthropologie cours interactif de 12h à 13H30 TD1 2022
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("23", "01/06", "1200", "1330", "2", "5", "1");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("23", '2020/06/01', "12:00", "13:30", "2", "5", "1");
 -- Seance anthropologie cours interactif de 13h45 à 15H15 TD2 2022
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("23", "01/06", "1345", "1515", "2", "5", "1");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("23", '2020/06/01', "13:45", "15:15", "2", "5", "1");
 -- Seance anglais cours interactif  de 15h30 à 17h00 TD1 2022
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "01/06", "1530", "1700", "2", "4", "1");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/06/01', "15:30", "17:00", "2", "4", "1");
 -- Seance anglais cours interactif  de 17h15 à 18h45 TD2 2022
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "01/06", "1715", "1845", "2", "4", "1");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/06/01', "17:15", "18:45", "2", "4", "1");
 -- 02/06
 -- Seance DDT cours magistral de 13h45 à 15h15 TD1 et 2 2022
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "02/06", "1345", "1515", "2", "6", "2");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/06/02', "13:45", "15:15", "2", "6", "2");
 -- 03/06
 -- Seance TS2 TP de 15H30 à 17h TD1 et 2 2022
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "03/06", "1530", "1700", "2", "7", "4");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/06/03', "15:30", "17:00", "2", "7", "4");
 -- Seance proba cours magistral de 17h15 à 18h45 TD1 et 2 2022
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", "29/05", "1715", "1845", "2", "3", "2");
---
--- séances de projet d'info pour TD1 2022
-INSERT INTO Seance_Groupes(Seance, Groupe) VALUES("1", "1");
-INSERT INTO  Seance_Groupes(Seance, Groupe) VALUES("2", "1");
--- séances de projet d'info pour TD2 2022
-INSERT INTO Seance_Groupes(Seance, Groupe) VALUES("3", "2");
-INSERT INTO  Seance_Groupes(Seance, Groupe) VALUES("4", "2");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/06/03', "17:15", "18:45", "2", "3", "2");
 --
 -- Seance Enseignants
 -- Info
-INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("1", "3");
-INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("2", "3");
-INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("3", "3");
-INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("4", "3");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("8", "3");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("9", "3");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("16", "3");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("17", "3");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("24", "3");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("25", "3");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("26", "3");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("27", "3");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("28", "3");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("29", "3");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("30", "3");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("31", "3");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("32", "3");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("33", "3");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("34", "3");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("35", "3");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("36", "3");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("37", "3");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("38", "3");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("39", "3");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("40", "3");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("41", "3");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("42", "3");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("43", "3");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("44", "3");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("45", "3");
+--
+-- Elec
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("4", "4");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("5", "4");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("22", "4");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("23", "4");
+-- 
+-- Proba
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("7", "5");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("11", "5");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("12", "5");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("18", "5");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("52", "5");
+--
+-- Anglais
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("6", "6");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("15", "6");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("48", "6");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("49", "6");
+--
+-- Anthropologie
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("1", "15");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("19", "15");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("46", "15");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("47", "15");
+--
+-- DDT
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("2", "16");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("10", "16");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("50", "16");
+--
+-- TS2
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("3", "17");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("51", "17");
+--
+-- Réseau
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("13", "18");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("14", "18");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("20", "18");
+INSERT INTO Seance_Enseignants(Seance, Enseignant) VALUES ("21", "18");
 --
 -- Seance Salles
--- Seance info projet le 27/05 de 15h30 à 17h en B1 (E2)
-INSERT INTO Seance_Salles(Seance, Salle) VALUES ("1", "3");
--- Seance info projet le 27/05 de 17h15 à 18h45 en F2 (E5)
-INSERT INTO Seance_Salles(Seance, Salle) VALUES ("2", "10");
--- Seance info projet le 26/05 de 8h30 à 10h en B2 (E2)
-INSERT INTO Seance_Salles(Seance, Salle) VALUES ("3", "4");
--- Seance info projet le 26/05 de 10h15 à 11h45 en F1 (E5)
+-- Info
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("8", "3");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("9", "3");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("16", "3");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("17", "3");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("24", "1");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("25", "1");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("26", "1");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("27", "1");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("28", "1");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("29", "1");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("30", "1");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("31", "1");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("32", "1");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("33", "1");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("34", "1");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("35", "1");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("36", "1");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("37", "1");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("38", "1");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("39", "1");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("40", "1");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("41", "1");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("42", "1");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("43", "1");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("44", "1");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("45", "1");
+--
+-- Elec
 INSERT INTO Seance_Salles(Seance, Salle) VALUES ("4", "9");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("5", "9");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("22", "17");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("23", "17");
+-- 
+-- Proba
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("7", "10");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("11", "10");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("12", "10");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("18", "10");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("52", "10");
+--
+-- Anglais
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("6", "6");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("15", "6");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("48", "6");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("49", "6");
+--
+-- Anthropologie
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("1", "17");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("19", "17");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("46", "17");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("47", "17");
+--
+-- DDT
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("2", "16");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("10", "16");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("50", "16");
+--
+-- TS2
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("3", "5");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("51", "5");
+--
+-- Réseau
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("13", "5");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("14", "5");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("20", "8");
+INSERT INTO Seance_Salles(Seance, Salle) VALUES ("21", "8");
+--
+-- Seance_Groupes
+-- Info
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("8", "1");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("9", "1");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("16", "2");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("17", "2");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("24", "3");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("25", "3");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("26", "3");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("27", "3");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("28", "3");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("29", "3");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("30", "3");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("31", "3");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("32", "3");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("33", "3");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("34", "3");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("35", "3");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("36", "3");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("37", "3");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("38", "3");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("39", "3");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("40", "3");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("41", "3");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("42", "3");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("43", "3");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("44", "3");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("45", "3");
+--
+-- Elec
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("4", "1");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("5", "1");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("22", "2");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("23", "2");
+-- 
+-- Proba
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("7", "1");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("11", "1");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("12", "1");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("18", "2");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("52", "2");
+--
+-- Anglais
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("6", "1");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("15", "2");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("48", "1");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("49", "2");
+--
+-- Anthropologie
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("1", "1");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("19", "2");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("46", "1");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("47", "2");
+--
+-- DDT
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("2", "1");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("10", "2");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("50", "1");
+--
+-- TS2
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("3", "1");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("51", "2");
+--
+-- Réseau
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("13", "1");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("14", "1");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("20", "2");
+INSERT INTO Seance_Groupes(Seance, Groupe) VALUES ("21", "2");
+-- end
