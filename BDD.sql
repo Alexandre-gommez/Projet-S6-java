@@ -199,7 +199,7 @@ INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '
 INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/29', "13:45", "15:15", "2", "8", "4");
 INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/29', "15:30", "17:00", "2", "8", "4");
 --
--- Semaine 22 TD1 2022
+-- Semaine 22 TD2 2022
 -- 26/05
 -- Seance anglais cours interactif le 26/05 de 13h45 à 15h15
 INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/05/26', "13:45", "15:15", "2", "4", "1");
@@ -255,17 +255,17 @@ INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("23", '
 -- Seance anthropologie cours interactif de 13h45 à 15H15 TD2 2022
 INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("23", '2020/06/01', "13:45", "15:15", "2", "5", "1");
 -- Seance anglais cours interactif  de 15h30 à 17h00 TD1 2022
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/06/01', "15:30", "17:00", "2", "4", "1");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("23", '2020/06/01', "15:30", "17:00", "2", "4", "1");
 -- Seance anglais cours interactif  de 17h15 à 18h45 TD2 2022
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/06/01', "17:15", "18:45", "2", "4", "1");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("23", '2020/06/01', "17:15", "18:45", "2", "4", "1");
 -- 02/06
 -- Seance DDT cours magistral de 13h45 à 15h15 TD1 et 2 2022
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/06/02', "13:45", "15:15", "2", "6", "2");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("23", '2020/06/02', "13:45", "15:15", "2", "6", "2");
 -- 03/06
 -- Seance TS2 TP de 15H30 à 17h TD1 et 2 2022
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/06/03', "15:30", "17:00", "2", "7", "4");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("23", '2020/06/03', "15:30", "17:00", "2", "7", "4");
 -- Seance proba cours magistral de 17h15 à 18h45 TD1 et 2 2022
-INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("22", '2020/06/03', "17:15", "18:45", "2", "3", "2");
+INSERT INTO Seance(Semaine, Date, Debut, Fin, Etat, Cours, Type) VALUES ("23", '2020/06/03', "17:15", "18:45", "2", "3", "2");
 --
 -- Seance Enseignants
 -- Info
